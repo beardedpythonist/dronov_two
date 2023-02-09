@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title> {% block title %} Главная {% endblock %} :: Доска объявлений </title>
       <link rel="stylesheet" type="text/css"
-            href="{% static 'bboard/bo2.css' %}">
+            href="{% static 'bboard/style.css' %}">
 
   </head>
   <body>
@@ -14,13 +14,13 @@
   </header>
 
 <nav>
-     <a href="{% url 'index' %}" >Главная</а>
-     <a href="{% url 'add' %}">Добавить</а>
+     <a href="{% url 'index' %}" >Главная</a>
+     &nbsp;&nbsp;
+     <a href="{% url 'add' %}">Добавить</a>
 
      {% for rubric in rubrics %}
-         <br>
-         <br>
-       <a href="{% url 'by_rubric' rubric.pk %}">{{ rubric.name }}</a>
+
+       <a href="{% url 'by_rubric' rubric.pk %}">  &nbsp; &nbsp;{{ rubric.name }}</a>
        {% endfor %}
 </nav>
 <section>

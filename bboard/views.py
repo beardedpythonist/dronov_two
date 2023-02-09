@@ -1,7 +1,13 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from .models import Bb, Rubric
 from django.views.generic.edit import CreateView
 from .forms import BbForm
+
+
+def index2(request):
+    return HttpResponse('Здесь будет доска объявлений')
+
 
 def index(request):
     bbs = Bb.objects.all()
