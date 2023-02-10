@@ -2,11 +2,11 @@
 {% block content %}
 {% for bb in bbs %}
 <div>
-    <h2>{{ bb.title }}</h2>
-    <p>{{ bb.content }}</p>
-    <a href="{% url 'by_rubric' bb.rubric.pk %}">
-        {{ bb.rubric.name }}</a>
-     {{ bb.published|date:"d.m.Y H:i:s" }}
+    <h2 class="alert alert-warning alert-dismissible fade show" role="alert">{{ bb.title }}</h2>
+    <h3 class="alert alert-success" role="alert"> {{ bb.content }}</h3>
+    <a  class="alert alert-warning alert-dismissible fade show" role="alert" href="{% url 'by_rubric' bb.rubric.pk %}"> {{ bb.rubric.name }}</a>
+    <h5 class="alert alert-warning alert-dismissible fade show" role="alert"> дата добавления {{ bb.published|date:"d.m.Y H:i:s" }} </h5>
+    <hr>
 </div>
 {% endfor %}
 {% endblock %}
