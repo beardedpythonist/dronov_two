@@ -1,12 +1,39 @@
 {% extends "layout/basic.html" %}
 {% block content %}
-{% for bb in bbs %}
-<div>
-    <h2 class="alert alert-warning alert-dismissible fade show" role="alert">{{ bb.title }}</h2>
-    <h3 class="alert alert-success" role="alert"> {{ bb.content }}</h3>
-    <a  class="alert alert-warning alert-dismissible fade show" role="alert" href="{% url 'by_rubric' bb.rubric.pk %}"> {{ bb.rubric.name }}</a>
-    <h5 class="alert alert-warning alert-dismissible fade show" role="alert"> дата добавления {{ bb.published|date:"d.m.Y H:i:s" }} </h5>
-    <hr>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th> Название</th>
+            <th> Описание </th>
+            <th> Дата публикации </th>
+            <th> Рубрика                   </th>
+            <th> Цена </th>
+            <th> Количество</th>
+            <hr>
+        </tr>
+         </thead>
+     <tbody>
+        {% for bb in bbs %}
+        <tr class="table-warning">
+            <th scope="row">  {{ bb.id }}</th>
+            <td> {{ bb.title }}    </td>
+            <td> {{ bb.content }}   </td>
+            <td> {{ bb.published|date:"d.m.Y H:i:s" }} </td>
+            <td>    <a  href="{% url 'by_rubric' bb.rubric.pk %}"> {{ bb.rubric.name }}</a> </td>
+
+            <td> {{ bb.price }}</td>
+            <td> {{ bb.amount }}</td>
+            <td> <div class="custom-control custom-checkbox">
+  <input type="checkbox" class="custom-control-input" id="customCheck1">
+  <label class="custom-control-label" for="customCheck1">в карзину</label>
 </div>
+
+                            </td>
+
 {% endfor %}
+
 {% endblock %}
+     </tbody>
+    </table>

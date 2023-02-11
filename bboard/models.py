@@ -4,6 +4,7 @@ class Bb(models.Model):
     content = models.TextField(null=True, blank=True, verbose_name='содержание')
     price = models.FloatField(null=True, blank=True, verbose_name='цена' )
     published = models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='дата публикации')
+    amount = models.IntegerField(null=True, blank=True, verbose_name='Количество')
     rubric = models.ForeignKey('Rubric', null=True, on_delete=models.PROTECT)
 
 
